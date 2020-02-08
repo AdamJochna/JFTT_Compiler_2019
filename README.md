@@ -19,10 +19,10 @@ If compilation has errors we don't get file and get log of errors (for example w
 If compilation detects warnings (possibility of reading unassigned value, but this time in if statement, this might never execute so only warning not error) we get log of warnings and get compiled .mr code.
 
 ## Virtual Machine (Register Machine)
-If we want to run our .mr file on virtual machine we have directory maszyna_wirtualna wich contains virtual machine wich can run .mr files compiled by our kompilator.py. Virtual machine has to be compiled, it is written in C++ and has possibility of using large numbers library. Virtual machine was written by <b>PhD Maciej Gębala</b>
+If we want to run our .mr file on virtual machine we have directory maszyna_wirtualna which contains virtual machine which can run .mr files compiled by our kompilator.py. Virtual machine has to be compiled, it is written in C++ and has possibility of using large numbers library. Virtual machine was written by <b>PhD Maciej Gębala</b>
 
 ## Language specification
-This is specification of language used in .imp files wich we have to compile to virtual machine code: 
+This is specification of language used in .imp files which we have to compile to virtual machine code: 
 
 	program       -> DECLARE declarations BEGIN commands END
 				  | BEGIN commands END
