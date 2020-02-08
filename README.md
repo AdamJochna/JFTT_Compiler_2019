@@ -2,8 +2,8 @@
 Compiler made during course <b>Formal Languages and Translation Techniques(Języki Formalne i Techniki Translacji)</b> Lecturer: <b>PhD Maciej Gębala</b>
 
 ## Technologies used
-- <b>Python 3.7</b>,
-- <b>PLY (Python Lex-Yacc)</b>,
+- <b>Python 3.7</b>
+- <b>PLY (Python Lex-Yacc)</b>
 
 ## Compiler running and setup
 To run compiler you have to use following commands under Linux:
