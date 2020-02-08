@@ -8,11 +8,11 @@ Compiler made during course <b>Formal Languages and Translation Techniques(Języ
 ## Compiler running and setup
 To run compiler you have to use following commands under Linux:
 
-sudo apt update
-sudo apt install python3
-sudo apt install python3-pip
-pip3 install ply
-python3 kompilator.py <input_file_name> <output_file_name>
+- <b>sudo apt update</b>
+- <b>sudo apt install python3</b>
+- <b>sudo apt install python3-pip</b>
+- <b>pip3 install ply</b>
+- <b>python3 kompilator.py <input_file_name> <output_file_name></b>
 
 If compilation runs without errors we are getting machine code for register machine specified in file labor4.pdf (only Polish version of pdf).
 If compilation has errors we don't get file and get log of errors (for example when we want to read unassigned value).
