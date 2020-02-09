@@ -4,7 +4,8 @@ Compiler made during course <b>Formal Languages and Translation Techniques(Języ
 ## Compiler score:
 Compiler scored 4th out of total 112 compilers send to our lecturer for scoring. We were being scored by effectiveness of our final machine code.Each instruction was assigned cost (specified in labor4.pdf). Each test run by our lecturer was scored by ranks of sum of all instructions costs. Final score of compiler was sum of places at each test. For example my compiler was ranked 4th with score 69 = 10 + 11 + 1 + 1 + 3 + 4 + 39 . My compiler was best on two tests. It is worth noting that we never knew what tests we will be graded on and this is still a secret.
 
-![My compiler is the 4th with SumaM=69](https://github.com/AdamJochna/JFTT_Compiler_2019/blob/master/imgs/leaderboard.jpg)
+My compiler is the 4th with SumaM=69:
+![](https://github.com/AdamJochna/JFTT_Compiler_2019/blob/master/imgs/leaderboard.jpg)
 
 
 ## Optimizations used in compiler:
@@ -13,7 +14,8 @@ I focused mainly on optimizing machine code, not so much on opitimizing AST tree
 Here I list optimizations used (some of them I have forgotten):
 - I found way to make squaring numbers faster this is useful during prime fastor decomposition or other algorithms, I used fact that I can cheaply make lookup table for squares i^2 for i in range 0-2^6 this allowed me to avoid making 6 primary loops in binary decomposing i for numbers in range 0-2^12 this is 50% boost which is a lot, worth noticing is that I used this algorithm only when program contained VARIABLE TIMES VARIABLE otherwise lookup table was not generated.Also decomposing smaller number of two is cheaper than naivly decomposing first number in statement example x*y = bin(x)*y (naive) = bin(min(x,y))*max(x,y) (better)
 
-![Equation that was the building block to efficient number squaring](https://github.com/AdamJochna/JFTT_Compiler_2019/blob/master/imgs/eq.jpg)
+Equation that was the building block to efficient number squaring:
+![](https://github.com/AdamJochna/JFTT_Compiler_2019/blob/master/imgs/eq.jpg)
 
 - I used binary decomposition in calculating modulo and div but instead decomposing binary i decomposed numbers in quadrary system, this allowed me to avoid making calculations seeing if value is smaller than zero then backtracking. Adding smaller numbers but more often is better in this case. Also I made switch cases when complier was making mod or div with 2 this could be done cheaply with shift operations.
 - I used binary logic where values x>0 have binary value true and x<= have binary value false this allowed me to avoid generating 0 and 1 which is not efficient, instead in cases when comparing x>y or x>=y i could subtract numbers change signs(depending on inequality) and subtract or add 1 which is cheap.
