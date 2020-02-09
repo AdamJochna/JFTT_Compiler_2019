@@ -1,6 +1,19 @@
 # Compiler - JFTT 2019/2020
 Compiler made during course <b>Formal Languages and Translation Techniques(Języki Formalne i Techniki Translacji)</b> Lecturer: <b>PhD Maciej Gębala</b>
 
+## Compiler score:
+Compiler scored 4th out of total 112 compilers send to our lecturer for scoring. We were being scored by effectiveness of our final machine code.Each instruction was assigned cost (specified in labor4.pdf). Each test run by our lecturer was scored by ranks of sum of all instructions costs. Final score of compiler was sum of places at each test. For example my compiler was ranked 4th with score 69 = 10 + 11 + 1 + 1 + 3 + 4 + 39 . My compiler was best on two tests. It is worth noting that we never knew what tests we will be graded on and this is still a secret.
+
+## Optimizations used in compiler:
+I focused mainly on optimizing machine code, not so much on opitimizing AST tree. Code you see here is final version of compiler, but my developer version cosists of testing environment which was crucial. If our code gives wrong answer we get 200 penalty so with one error out of my score would be 268 and I would land on ~30th place. So optimization is worth doing only when it works (xD). My procedure for optimization was tests driven and at the beggining I focused on writing heavy tests with many corner cases and randomized tests generated with python code and python generated answers then translated to .imp code to assure answers are true. Then I tried to optimize sum of costs of all tests. A the end I ended up having 10 times lower operations cost.
+
+Here I list optimizations used (some of them I have forgotten):
+- I found way to make squaring numbers faster this is useful during prime fastor decomposition or other algorithms, I used fact that I can cheaply make lookup table for squares i^2 for i in range 0-2^6 this allowed me to avoid making 6 primary loops in binary decomposing i for numbers in range 0-2^12 this is 50% boost which is a lot, worth noticing is that I used this algorithm only when program contained VARIABLE TIMES VARIABLE otherwise lookup table was not generated.Also decomposing smaller number of two is cheaper than naivly decomposing first number in statement example x*y = bin(x)*y (naive) = bin(min(x,y))*max(x,y) (better)
+- I used binary decomposition in calculating modulo and div but instead decomposing binary i decomposed numbers in quadrary system, this allowed me to avoid making calculations seeing if value is smaller than zero then backtracking. Adding smaller numbers but more often is better in this case. Also I made switch cases when complier was making mod or div with 2 this could be done cheaply with shift operations.
+- I used binary logic where values x>0 have binary value true and x<= have binary value false this allowed me to avoid generating 0 and 1 which is not efficient, instead in cases when comparing x>y or x>=y i could subtract numbers change signs(depending on inequality) and subtract or add 1 which is cheap.
+- I used costant increments for example X PLUS 1 is just incrementing X by 1, naive way is to make variable assign 1 then add variable to X and assign it to X,
+some people did this that way, which was inefficient. My program detected constants especially small like -2 -1 0 1 2.
+
 ## Technologies used
 - <b>Python 3.7</b>
 - <b>PLY (Python Lex-Yacc)</b>
